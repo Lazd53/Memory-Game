@@ -27,6 +27,9 @@ function randomizePick(num){
 
 // throw out all cards and start new game
 function resetIt(){
+  clearInterval(secondsCounter);
+  clearInterval(minutesCounter);
+  correct = 0;
   for (i=0; i<16; i++){
     cards[0].remove();
   }
@@ -111,9 +114,6 @@ function addMove() {
   if (moves>20) {
     stars[1].classList.add('deadstar');
   }
-  if (moves>25) {
-    stars[0].classList.add('deadstar');
-  }
 }
 
 
@@ -144,17 +144,12 @@ function guess(event) {
     finalScore.innerHTML=moves;
     hideEnd.classList.remove("hide");
     finalTime.innerHTML = min + ":" + sec;
-    if (moves<25) {
-      console.log("test")
-      finalStars.innerHTML = star;
-    }
-    if (moves<20) {
-      finalStars.innerHTML = star + star;
-      console.log("test2")
-    }
     if (moves<15) {
       finalStars.innerHTML = star + star + star;
-      console.log("test3")
+    } else if (moves<20) {
+      finalStars.innerHTML = star + star;
+    } else {
+      finalStars.innerHTML = star
     }
   }
 
@@ -163,9 +158,7 @@ function guess(event) {
     guessArr.push(event.target);
     event.target.classList.toggle("flipCard")
     if (guessArr.length == 2) {
-      if (guessArr[0] === event.target){
-        event.target.classList.toggle("flipCard");
-      } else if (checkGuess(guessArr[0], guessArr[1])){
+      if (checkGuess(guessArr[0], guessArr[1])){
         addMove();
         guessArr[0].classList.add("match");
         guessArr[1].classList.add("match");
