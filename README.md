@@ -18,11 +18,11 @@ On larger screens the game will visually show the completed matches on the bar t
 ## Scoring
 * 15 moves or less - 3 stars
 * 15 - 20 moves - 2 stars
-* 20 - 25 moves - 1 star
-* 25 and up - 0 stars
+* 20 moves and up - 1 star
+
 
 ## Course Name
-FRont-End Web Developer - Udacity
+Front-End Web Developer - Udacity
 
 ## Author
 Alex Love

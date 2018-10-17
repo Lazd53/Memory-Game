@@ -144,9 +144,9 @@ function guess(event) {
     finalScore.innerHTML=moves;
     hideEnd.classList.remove("hide");
     finalTime.innerHTML = min + ":" + sec;
-    if (moves<15) {
+    if (moves<16) {
       finalStars.innerHTML = star + star + star;
-    } else if (moves<20) {
+    } else if (moves<21) {
       finalStars.innerHTML = star + star;
     } else {
       finalStars.innerHTML = star
